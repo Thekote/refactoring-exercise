@@ -1,11 +1,11 @@
 class CreateGuestUser
-  def initialize(cart:, **options)
+  def initialize(cart:, purchase_params:)
     @cart = cart
-    @purchase_params = options[:purchase_params]
+    @purchase_params = purchase_params || {}
   end
 
-  def self.call(cart:, **options)
-    new(cart: cart, **options).call
+  def self.call(cart:, purchase_params:)
+    new(cart: cart, purchase_params: purchase_params).call
   end
 
   def call
